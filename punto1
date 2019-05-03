@@ -1,0 +1,51 @@
+package punto1;
+public class MyMatrix {
+    protected int valor[][];
+    
+    public MyMatrix(int[][] valor){ //recibe un parametro variable
+        this.valor = valor;
+    }
+     
+    public int dimension(){
+        return this.valor.length;//retorna el valor de la cade
+    }
+ //compara  la cantidad de elementos en la matriz   
+    private boolean compara(int[] numeros){
+        boolean igual = true;
+        int i=1;
+        for (int x=0;x<numeros.length;x++) {
+            while(igual){
+                if (numeros[i] != numeros[x]){//si son diferentes la cantidad de elementos 
+                    igual = false;
+                    break;
+                }
+                i++;
+            }
+        }
+        return igual;
+    }
+    
+    public boolean straight(){
+        int[] x = new int[this.dimension()];
+        for(int i=0; i < this.valor.length;i++){
+            x[i] = this.valor[i].length;
+        }
+        return this.compara(x);
+    }
+    
+ //muestra los elementos de la matriz
+    public void mostrar(){
+        for (int[] valor1 : this.valor) {
+            for (int j = 0; j < valor1.length; j++) {
+                System.out.println(valor1[j]);
+            }
+        }
+    }
+public static void main(String[] args) {
+ int[][] a = {{1,2},{2,4}};
+       MyMatrix m =new MyMatrix(a);
+       System.out.println("Dimension :" + m.dimension());
+       System.out.println("Straight: " + m.straight());
+    }
+}  
+
