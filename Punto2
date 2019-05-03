@@ -1,0 +1,13 @@
+import re
+
+#Split the string at the first white-space character:
+
+str = "3+4"
+x = re.search("(([(][0-9]+([-,*,+,/][0-9]+)+[)])+|([0-9][-,*,+,/][0-9]+)+)+", str)
+#x = re.findall("([0-9]+([-,*,+,/][0-9]+)+)", str)
+print(x.group())
+print(str[1])
+if str==x.group():
+	print ("True")
+else:  
+  print ("False")
